@@ -38,7 +38,7 @@ function App({ signOut, user }) {
       </div>
 
       <div>
-        <button onClick={uploadFile}>Upload file</button>
+        <button onClick={uploadFile}>Upload File</button>
       </div>
       
       <div>
