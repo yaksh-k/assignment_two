@@ -34,7 +34,7 @@ function App({ signOut, user }) {
       </div>
 
       <div>
-        <input type="file" multiple accept=".jpg, .png" onChange={(e) => setFileData(e.target.files[0])} />
+      <input type="file" accept="image/png, image/jpeg" onChange={(e) => setFileData(e.target.files[0])} />
       </div>
 
       <div>
