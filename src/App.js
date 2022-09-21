@@ -17,14 +17,14 @@ function App({ signOut, user }) {
   var imageURI = "";
 
   const uploadFile = async () => {
-    const result = await Storage.put(fileData.name, fileData, {
+    const result = await Storage.put(user.username + fileData.name, fileData, {
       contentType: fileData.type,
     });
     setFileStatus(true);
     console.log(21, result);
   };
 
-  fileStatus ? imageURI = s3URi + fileData.name  : imageURI = "Undefined"
+  fileStatus ? imageURI = s3URi + user.username + fileData.name  : imageURI = "Undefined"
 
   return (
     <div className="App">
