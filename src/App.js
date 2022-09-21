@@ -12,19 +12,33 @@ Amplify.configure(awsExports);
 function App({ signOut, user }) {
   const [fileData, setFileData] = useState();
   const [fileStatus, setFileStatus] = useState(false);
+  var imageURI = "";
   const s3URi = 's3://compx527assignment2bucket192340-dev/public/';
 
-  var imageURI = "";
+  // var imageURI = "";
+  var animal = "";
+  var breed = "";
 
   const uploadFile = async () => {
     const result = await Storage.put(user.username + fileData.name, fileData, {
       contentType: fileData.type,
     });
     setFileStatus(true);
-    console.log(21, result);
+
+    imageURI = s3URi + user.username + fileData.name;
+
+    fetchTags();
   };
 
-  fileStatus ? imageURI = s3URi + user.username + fileData.name  : imageURI = "Undefined"
+  function fetchTags() {
+    console.log(imageURI)
+    fetch('https://ykyk4cx158.execute-api.us-east-1.amazonaws.com/527-deploy-staging/models?uri=' + imageURI)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(err => {
+      console.log(err)
+    });
+  }
 
   return (
     <div className="App">
@@ -34,7 +48,7 @@ function App({ signOut, user }) {
       </div>
 
       <div>
-        <label for = "file-uploadFile" class="custom-file-upload">Custom Upload</label>
+        {/* <label for = "file-uploadFile" class="custom-file-upload">Custom Upload</label> */}
         <input id = "uploadFile" type="file" accept="image/png, image/jpeg" onChange={(e) => setFileData(e.target.files[0])} />
       </div>
 

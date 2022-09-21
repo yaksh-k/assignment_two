@@ -35,9 +35,6 @@ button{
   background-clip: content-box, border-box;
 }
 
-input[type="file"] {
-  display: none;
-}
 
 .custom-file-upload {
   width: 250px;
