@@ -1,0 +1,13 @@
+{
+  "resourceName": "assignment2resource",
+  "policyUUID": "caa83f5f",
+  "bucketName": "compx527assignment2bucket",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
