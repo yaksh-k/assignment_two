@@ -34,7 +34,8 @@ function App({ signOut, user }) {
       </div>
 
       <div>
-      <input type="file" accept="image/png, image/jpeg" onChange={(e) => setFileData(e.target.files[0])} />
+        <label for = "file-uploadFile" class="custom-file-upload">Custom Upload</label>
+        <input id = "uploadFile" type="file" accept="image/png, image/jpeg" onChange={(e) => setFileData(e.target.files[0])} />
       </div>
 
       <div>

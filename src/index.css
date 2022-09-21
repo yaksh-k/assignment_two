@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(106, 172, 220);
 }
 
 code {
@@ -14,4 +15,37 @@ code {
 
 div {
   padding-bottom: 5%;
+}
+
+h1 {
+  color: rgb(224, 203, 163);
+}
+
+h2 {
+  color: rgb(224, 203, 163);
+}
+
+button{
+  width: 250px;
+  height: 50px;
+  border: double 4px transparent;
+  border-radius: 80px;
+  background-image: linear-gradient(white, white), radial-gradient(circle at top left, rgb(106, 172, 220), rgb(224, 203, 163));
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  width: 250px;
+  height: 50px;
+  border: double 4px transparent;
+  border-radius: 80px;
+  background-image: linear-gradient(white, white), radial-gradient(circle at top left, rgb(106, 172, 220), rgb(224, 203, 163));
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  display:inline-block;
 }
