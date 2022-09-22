@@ -12,12 +12,10 @@ Amplify.configure(awsExports);
 function App({ signOut, user }) {
   const [fileData, setFileData] = useState();
   const [fileStatus, setFileStatus] = useState(false);
+  const [animal, setAnimal] = useState('Undefined');
+  const [breed, setBreed] = useState('Undefined');
   var imageURI = "";
   const s3URi = 's3://compx527assignment2bucket192340-dev/public/';
-
-  // var imageURI = "";
-  var animal = "";
-  var breed = "";
 
   const uploadFile = async () => {
     const result = await Storage.put(user.username + fileData.name, fileData, {
@@ -47,11 +45,8 @@ function App({ signOut, user }) {
 
     // Store the animal and breed.
     var resWords = str.split(',');
-    animal = resWords[0];
-    breed = resWords[1];
-
-    console.log(animal);
-    console.log(breed);
+    setAnimal(resWords[0]);
+    setBreed(resWords[1]);
   }
 
   return (
@@ -76,8 +71,11 @@ function App({ signOut, user }) {
         <p>{fileStatus ? "Image uploaded successfully." : "Please upload an image."}</p>
         <br />
 
-        <p>{fileStatus ? animal : "Please upload an image."}</p>
-        <p>Breed: </p>
+        <p>Animal: {animal}</p>
+        <p>Breed: {breed}</p>
+
+        <br />
+        <br />
       </div>
 
       <div>
