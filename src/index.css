@@ -1,11 +1,11 @@
 body {
-  margin: 0;
+  margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(106, 172, 220);
+  background-color: black;
 }
 
 code {
@@ -18,31 +18,36 @@ div {
 }
 
 h1 {
-  color: rgb(224, 203, 163);
+  color: white;
 }
 
 h2 {
-  color: rgb(224, 203, 163);
+  color: white;
 }
 
-button{
-  width: 250px;
-  height: 50px;
-  border: double 4px transparent;
-  border-radius: 80px;
-  background-image: linear-gradient(white, white), radial-gradient(circle at top left, rgb(106, 172, 220), rgb(224, 203, 163));
-  background-origin: border-box;
-  background-clip: content-box, border-box;
+input[type="file"] {
+  display: none;
 }
 
-
-.custom-file-upload {
+.custom-file-upload, button {
   width: 250px;
   height: 50px;
-  border: double 4px transparent;
+  border: none;
   border-radius: 80px;
-  background-image: linear-gradient(white, white), radial-gradient(circle at top left, rgb(106, 172, 220), rgb(224, 203, 163));
-  background-origin: border-box;
-  background-clip: content-box, border-box;
+  background-color: white;
   display:inline-block;
+  line-height: 50px;
+  text-align: center;
+}
+
+button:hover, .custom-file-upload:hover{
+  background: rgb(208, 208, 190);
+}
+
+button:active, .custom-file-upload:active{
+  background: rgb(188, 188, 117);
+}
+
+p {
+  color: white;
 }

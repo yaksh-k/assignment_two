@@ -48,8 +48,10 @@ function App({ signOut, user }) {
       </div>
 
       <div>
-        {/* <label for = "file-uploadFile" class="custom-file-upload">Custom Upload</label> */}
-        <input id = "uploadFile" type="file" accept="image/png, image/jpeg" onChange={(e) => setFileData(e.target.files[0])} />
+        <label className="custom-file-upload">
+          <input id = "uploadFile" type="file" accept="image/png, image/jpeg" onChange={(e) => setFileData(e.target.files[0])} />
+          Select Image
+        </label>
       </div>
 
       <div>
@@ -57,10 +59,10 @@ function App({ signOut, user }) {
       </div>
       
       <div>
-        {fileStatus ? "Image uploaded successfully." : "Please upload an image."}
+        <p>{fileStatus ? "Image uploaded successfully." : "Please upload an image."}</p>
         <br />
 
-        {"Image URI: " + imageURI}
+        <p>{"Image URI: " + imageURI}</p>
       </div>
 
       <div>
