@@ -30,14 +30,28 @@ function App({ signOut, user }) {
     fetchTags();
   };
 
-  function fetchTags() {
-    console.log(imageURI)
-    fetch('https://ykyk4cx158.execute-api.us-east-1.amazonaws.com/527-deploy-staging/models?uri=' + imageURI)
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(err => {
-      console.log(err)
-    });
+  async function fetchTags() {
+    // Call the API.
+    const res = await fetch('https://ykyk4cx158.execute-api.us-east-1.amazonaws.com/527-deploy-staging/models?uri=' + imageURI)
+
+    // Convert the result into JSON.    
+    const jsonRes = await res.json();
+
+    // Turn the result into a string.
+    var str = JSON.stringify(jsonRes);
+
+    // Remove unused information.
+    str = str.replace('{"Tags":["', '');
+    str = str.replace('","', ',');
+    str = str.replace('"]}', '');
+
+    // Store the animal and breed.
+    var resWords = str.split(',');
+    animal = resWords[0];
+    breed = resWords[1];
+
+    console.log(animal);
+    console.log(breed);
   }
 
   return (
@@ -62,7 +76,8 @@ function App({ signOut, user }) {
         <p>{fileStatus ? "Image uploaded successfully." : "Please upload an image."}</p>
         <br />
 
-        <p>{"Image URI: " + imageURI}</p>
+        <p>{fileStatus ? animal : "Please upload an image."}</p>
+        <p>Breed: </p>
       </div>
 
       <div>
