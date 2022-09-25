@@ -14,16 +14,21 @@ function App({ signOut, user }) {
   const [fileStatus, setFileStatus] = useState(false);
   const [animal, setAnimal] = useState('Undefined');
   const [breed, setBreed] = useState('Undefined');
+  const [imgURL, setImgURL] = useState('cat.png');
   var imageURI = "";
   const s3URi = 's3://compx527assignment2bucket192340-dev/public/';
 
   const uploadFile = async () => {
-    const result = await Storage.put(user.username + fileData.name, fileData, {
+    const result = await Storage.put(user.username + '-' + fileData.name, fileData, {
       contentType: fileData.type,
     });
     setFileStatus(true);
 
-    imageURI = s3URi + user.username + fileData.name;
+    setImgURL(URL.createObjectURL(fileData));
+
+    console.log(imgURL);
+
+    imageURI = s3URi + user.username + '-' + fileData.name;
 
     fetchTags();
   };
@@ -68,8 +73,9 @@ function App({ signOut, user }) {
       </div>
       
       <div>
-        <p>{fileStatus ? "Image uploaded successfully." : "Please upload an image."}</p>
-        <br />
+        <p>{fileStatus ? "" : "Please upload an image."}</p>
+
+        <img id = "userImage" src= {imgURL} alt="User's image."  width="200px"/>
 
         <p>Animal: {animal}</p>
         <p>Breed: {breed}</p>
