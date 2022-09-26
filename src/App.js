@@ -30,12 +30,15 @@ function App({ signOut, user }) {
 
     imageURI = s3URi + user.username + '-' + fileData.name;
 
+    setAnimal("Undefined");
+    setBreed("Undefined");
+
     fetchTags();
   };
 
   async function fetchTags() {
     // Call the API.
-    const res = await fetch('https://ykyk4cx158.execute-api.us-east-1.amazonaws.com/527-deploy-staging/models?uri=' + imageURI)
+    const res = await fetch('https://yqtp7fszl4.execute-api.us-east-1.amazonaws.com/527_with_cors/models?uri=' + imageURI)
 
     // Convert the result into JSON.    
     const jsonRes = await res.json();
