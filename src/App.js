@@ -60,7 +60,7 @@ function App({ signOut, user }) {
   return (
     <div className="App">
       <div>
-        <h1>Cat and Dog Classifier</h1>
+        <h1>Whatchamacallit?</h1>
         <h2>COMPX527 A2</h2>
       </div>
 
@@ -82,9 +82,6 @@ function App({ signOut, user }) {
 
         <p>Animal: {animal}</p>
         <p>Breed: {breed}</p>
-
-        <br />
-        <br />
       </div>
 
       <div>
