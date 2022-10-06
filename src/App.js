@@ -26,7 +26,7 @@ function App({ signOut, user }) {
 
     setImgURL(URL.createObjectURL(fileData));
 
-    console.log(imgURL);
+    // console.log(imgURL);
 
     imageURI = s3URi + user.username + '-' + fileData.name;
 
